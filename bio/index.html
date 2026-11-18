@@ -1,8 +1,9 @@
 <!doctype html>
-<html lang="pt-BR">
+<html lang="pt-BR" translate="no">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="google" content="notranslate">
 <title>Dr. Daniel Caldas · Pediatra</title>
 <meta name="description" content="Dr. Daniel Caldas, médico pediatra. Caldas &amp; Caldas Pediatria e Clínica de Vacinação.">
 <meta name="robots" content="noindex">
@@ -141,6 +142,15 @@ svg{display:block}
 .seta{flex:none;width:36px;height:36px;border-radius:50%;display:grid;place-items:center;border:1px solid var(--line2);color:var(--gold2)}
 .seta svg{width:16px;height:16px}
 
+/* card destaque (consultas): ícone + texto + botão cheio */
+.card.destaque{
+  display:grid;grid-template-columns:56px minmax(0,1fr);column-gap:16px;align-items:start;
+  padding:22px 20px 20px;
+  background:linear-gradient(160deg,var(--card2),var(--card) 60%);border-color:var(--line2);
+}
+.card.destaque .txt{padding:0}
+.card.destaque .btn{margin-top:16px;margin-left:-72px}
+
 /* livro: banner inteiro */
 .card.livro .img{aspect-ratio:1200/630}
 
@@ -154,9 +164,54 @@ footer{
   .foto{width:176px}
   .nome{font-size:46px}
 }
+
+/* ===== DESKTOP (>=900px): duas colunas ===== */
+@media (min-width:900px){
+  body{background:radial-gradient(60% 60% at 20% 0%, var(--bg2), transparent 70%), var(--bg)}
+  .wrap{
+    max-width:1100px;padding:56px 40px 40px;
+    display:grid;grid-template-columns:340px minmax(0,1fr);column-gap:64px;align-items:start;
+  }
+  .tema{top:56px;right:40px;width:40px;height:40px}
+  .perfil{position:sticky;top:56px;padding:8px 0}
+  .foto{width:180px}
+  .nome{font-size:42px;margin-top:20px}
+  .titulos{font-size:12px}
+  .impacto{font-size:21px;margin-top:20px}
+  .redes{margin-top:20px}
+  .cards{margin-top:56px;gap:18px}
+  .card.livro{display:grid;grid-template-columns:50% minmax(0,1fr)}
+  .card .txt{padding:26px 28px;display:flex;flex-direction:column;justify-content:center;align-items:flex-start}
+  .card.destaque{grid-template-columns:64px minmax(0,1fr);column-gap:22px;padding:30px 28px 28px;align-items:center}
+  .card.destaque .icone{align-self:start}
+  .card.destaque .txt{padding:0}
+  .card.destaque .btn{margin-left:0;align-self:flex-start;padding:0 26px}
+  .card h2{font-size:28px}
+  .card p{font-size:15px}
+  .btn{margin-top:18px;min-height:46px;padding:0 22px;font-size:14px;align-self:stretch}
+  .card.livro .img{aspect-ratio:auto;height:100%;min-height:200px}
+  .card.livro .img img{object-position:left center}
+  .card.livro h2{font-size:25px}
+  .card.linha{display:flex;padding:24px 28px;gap:22px}
+  .card.linha .txt{padding:0}
+  .icone{width:64px;height:64px}
+  footer{grid-column:1 / -1;margin-top:48px}
+}
+@media (min-width:900px) and (max-width:1099px){
+  .wrap{grid-template-columns:300px minmax(0,1fr);column-gap:40px;padding-left:32px;padding-right:32px}
+  .tema{right:32px}
+  .card.livro{display:block}
+  .card.livro .img{aspect-ratio:1200/630;height:auto;min-height:0}
+  .card.livro .img img{object-position:center}
+}
+@media (min-width:1600px){
+  .wrap{padding-top:88px}
+  .tema{top:88px}
+  .perfil{top:88px}
+}
 </style>
 </head>
-<body>
+<body translate="no" class="notranslate">
 
 <main class="wrap">
 
@@ -189,8 +244,10 @@ footer{
   <!-- CARDS -->
   <section class="cards">
 
-    <a class="card" href="https://wa.me/5564992954703" target="_blank" rel="noopener">
-      <div class="img"><img src="img/drs-caldas-juntos.jpg" alt="Dr. Daniel e Dr. Sebastião Caldas no consultório" style="object-position:center 30%"></div>
+    <a class="card destaque" href="https://wa.me/5564992954703" target="_blank" rel="noopener">
+      <span class="icone" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3H5a1 1 0 0 0-1 1v5a5 5 0 0 0 10 0V4a1 1 0 0 0-1-1h-1"/><path d="M9 14v1a5 5 0 0 0 10 0v-2"/><circle cx="19" cy="11" r="2"/></svg>
+      </span>
       <div class="txt">
         <span class="tag">Atendimento</span>
         <h2>Consultas pediátricas</h2>
