@@ -13,7 +13,7 @@
 <meta property="og:title" content="Dr. Daniel Caldas · Pediatra">
 <meta property="og:description" content="Dr. Daniel Caldas, médico pediatra. Caldas &amp; Caldas Pediatria e Clínica de Vacinação.">
 <meta property="og:url" content="https://caldasecaldaspediatria.com.br/bio/">
-<meta property="og:image" content="https://caldasecaldaspediatria.com.br/bio/img/og-bio-v2.jpg">
+<meta property="og:image" content="https://caldasecaldaspediatria.com.br/bio/img/og-bio-v3.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="Dr. Daniel Caldas, médico pediatra">
@@ -25,7 +25,6 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Lato:wght@400;700&display=swap" rel="stylesheet">
 <style>
-
 :root{
   color-scheme:dark;
   --bg:#0d1a35;
@@ -52,20 +51,18 @@ a:focus-visible{outline:2px solid var(--gold-ink);outline-offset:4px}
 
 .wrap{max-width:520px;margin:0 auto;padding:0 var(--m) 40px}
 
-.hero{position:relative;margin:0 calc(var(--m) * -1);height:min(108vw,440px);overflow:hidden}
+.hero{margin:0 calc(var(--m) * -1);padding-top:20px}
 .hero img{
-  position:absolute;left:50%;top:6px;transform:translateX(-50%);
-  width:min(100%,440px);height:auto;display:block;
-
-  -webkit-mask-image:linear-gradient(180deg,#000 44%,rgba(0,0,0,.5) 58%,transparent 74%),linear-gradient(90deg,transparent 0,#000 20%,#000 80%,transparent 100%);
+  display:block;margin:0 auto;width:min(92%,420px);height:auto;
+  -webkit-mask-image:linear-gradient(180deg,#000 88%,transparent 100%),linear-gradient(90deg,transparent 0,#000 6%,#000 94%,transparent 100%);
   -webkit-mask-composite:source-in;
-  mask-image:linear-gradient(180deg,#000 44%,rgba(0,0,0,.5) 58%,transparent 74%),linear-gradient(90deg,transparent 0,#000 20%,#000 80%,transparent 100%);
+  mask-image:linear-gradient(180deg,#000 88%,transparent 100%),linear-gradient(90deg,transparent 0,#000 6%,#000 94%,transparent 100%);
   mask-composite:intersect;
 }
 .perfil > :not(.hero){position:relative;z-index:1}
 .nome{
   font-family:var(--serif);font-weight:600;
-  font-size:50px;line-height:.98;letter-spacing:-.02em;margin-top:-72px;
+  font-size:50px;line-height:.98;letter-spacing:-.02em;margin-top:4px;
 }
 .titulos{font-size:19px;margin-top:12px}
 .registro{font-size:15px;color:var(--soft);margin-top:2px}
@@ -99,7 +96,6 @@ p{max-width:60ch}
 .btn svg{width:20px;height:20px;flex:none}
 .btn:hover{background:var(--gold-ink)}
 .btn:active{transform:scale(.98)}
-
 .btn-2{background:#223a6c;color:var(--gold-ink)}
 .btn-2 svg{width:18px;height:18px;transition:transform .2s}
 .livro:hover .btn-2{background:#29457f}
@@ -140,9 +136,9 @@ p{max-width:60ch}
     max-width:1200px;padding:64px var(--m) 48px;
     display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);column-gap:clamp(48px,7vw,112px);
   }
-  .hero{margin:0;height:500px}
-  .hero img{width:440px;left:0;transform:none;top:0;animation-name:surge}
-  .nome{font-size:clamp(56px,5.6vw,76px);margin-top:-88px}
+  .hero{margin:0;padding-top:0}
+  .hero img{width:min(100%,420px);margin:0}
+  .nome{font-size:clamp(56px,5.6vw,76px);margin-top:8px}
   .titulos{font-size:20px;margin-top:16px}
   .impacto{font-size:26px;margin-top:28px}
   .caminhos{margin-top:0;padding-top:24px}
@@ -156,8 +152,7 @@ p{max-width:60ch}
 }
 @media (min-width:900px) and (max-width:1099px){
   .wrap{grid-template-columns:minmax(0,1fr) minmax(0,1.2fr)}
-  .hero{height:420px}
-  .hero img{width:360px}
+  .hero img{width:min(100%,360px)}
   .item h2{font-size:32px}
   .item{padding:24px}
 
@@ -172,7 +167,7 @@ p{max-width:60ch}
 <main class="wrap">
 
   <section class="perfil">
-    <div class="hero"><img src="img/dr-daniel-recorte.webp" alt="Dr. Daniel Caldas, médico pediatra" width="640" height="800"></div>
+    <div class="hero"><img src="img/dr-daniel-recorte-v2.webp" alt="Dr. Daniel Caldas, médico pediatra" width="900" height="1097"></div>
     <h1 class="nome">Dr. Daniel Caldas</h1>
     <p class="titulos">Médico Pediatra</p>
     <p class="registro">CRM-GO 12.195 · RQE 8.175</p>
