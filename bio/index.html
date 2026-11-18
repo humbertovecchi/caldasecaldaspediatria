@@ -81,37 +81,48 @@ a:focus-visible{outline:2px solid var(--gold-ink);outline-offset:4px}
 p{max-width:60ch}
 .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 
+/* os três caminhos: o mesmo retângulo (mesmo fundo, margem e padding) */
+.item{background:var(--field);border-radius:6px;padding:20px}
+.item + .item{margin-top:16px}
+
 /* consulta e vacinação: foto real + texto + o mesmo botão */
 .pessoa{display:grid;grid-template-columns:112px minmax(0,1fr);column-gap:18px;align-items:center}
-.pessoa .foto{width:100%;height:auto;aspect-ratio:4/5;object-fit:cover;display:block;background:var(--field)}
+.pessoa .foto{width:100%;height:auto;aspect-ratio:4/5;object-fit:cover;display:block;border-radius:3px;background:var(--bg)}
 .pessoa .btn{grid-column:1 / -1}
-.consulta{background:var(--field);margin:0 calc(var(--m) * -1);padding:24px var(--m)}
-.vacina{padding:32px 0 8px}
 
 .btn{
   display:flex;align-items:center;justify-content:center;gap:10px;
-  min-height:52px;padding:0 26px;margin-top:22px;border-radius:3px;
+  min-height:52px;padding:0 26px;margin-top:20px;border-radius:3px;
   background:var(--gold);color:var(--on-gold);font-weight:700;font-size:16px;
   transition:transform .15s,background-color .2s;
 }
 .btn svg{width:20px;height:20px;flex:none}
 .btn:hover{background:var(--gold-ink)}
 .btn:active{transform:scale(.98)}
-/* livro: mesma forma, sem o dourado cheio (é outra ação) */
-.btn-2{background:var(--field);color:var(--gold-ink)}
+/* livro: mesma forma e tamanho, cor diferente (é outra ação) */
+.btn-2{background:#223a6c;color:var(--gold-ink)}
 .btn-2 svg{width:18px;height:18px;transition:transform .2s}
-.livro:hover .btn-2{background:#1b3160}
+.livro:hover .btn-2{background:#29457f}
 .livro:hover .btn-2 svg{transform:translateX(4px)}
 
-/* livro: a capa inteira, sem corte */
-.livro{margin-top:40px}
-.livro .capa{margin:0 calc(var(--m) * -1);aspect-ratio:1200/630;overflow:hidden;background:var(--field)}
+/* livro: a capa inteira, dentro do retângulo */
+.livro{display:block}
+.livro .capa{aspect-ratio:1200/630;overflow:hidden;border-radius:3px;background:var(--bg)}
 .livro .capa img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s}
 .livro:hover .capa img{transform:scale(1.015)}
-.livro .txt{padding-top:18px}
+.livro .txt{padding-top:16px}
 .livro .txt p{margin-top:0}
 
-footer{max-width:60ch;margin-top:64px;font-size:16px;line-height:1.6;color:var(--soft)}
+/* rodapé: fechamento com o monograma CC */
+.rodape{
+  margin-top:56px;padding-top:28px;
+  border-top:1px solid rgba(238,240,243,.10); /* taste-skill-ignore: separador pedido pelo cliente */
+  display:grid;grid-template-columns:44px minmax(0,1fr);column-gap:16px;row-gap:18px;align-items:center;
+}
+.rodape .cc{width:44px;height:auto;display:block}
+.rodape .clinica{font-family:var(--serif);font-weight:600;font-size:20px;line-height:1.2}
+.rodape .medico{font-size:15px;color:var(--soft);margin-top:4px}
+.rodape .ano{grid-column:1 / -1;font-size:14px;color:var(--soft)}
 
 /* entrada leve, só CSS */
 @keyframes sobe{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
@@ -138,18 +149,19 @@ footer{max-width:60ch;margin-top:64px;font-size:16px;line-height:1.6;color:var(-
   .titulos{font-size:20px;margin-top:16px}
   .impacto{font-size:26px;margin-top:28px}
   .caminhos{margin-top:0;padding-top:24px}
-  .pessoa{grid-template-columns:168px minmax(0,1fr);column-gap:32px;align-items:start}
+  .item{padding:28px}
+  .item + .item{margin-top:20px}
+  .pessoa{grid-template-columns:168px minmax(0,1fr);column-gap:28px;align-items:start}
   .pessoa .foto{grid-row:1 / span 2}
-  .pessoa .txt{padding-top:6px}
-  .pessoa .btn{grid-column:2;justify-self:start;margin-top:20px}
-  .consulta{margin:0;padding:32px}
-  .vacina{padding:40px 32px 8px}
+  .pessoa .txt{padding-top:4px}
+  .pessoa .btn{grid-column:2;align-self:end;justify-self:stretch;margin-top:16px}
   .item h2{font-size:36px}
-  .livro{margin-top:48px}
-  .livro .capa{margin:0}
-  .livro .txt{padding:22px 32px 0;display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap}
+  .livro .txt{padding-top:20px;display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;column-gap:24px}
   .livro .btn{margin-top:0}
-  footer{grid-column:1 / -1;margin-top:96px}
+  .rodape{grid-column:1 / -1;margin-top:88px;padding-top:32px;grid-template-columns:52px minmax(0,1fr) auto;column-gap:20px}
+  .rodape .cc{width:52px}
+  .rodape .clinica{font-size:22px}
+  .rodape .ano{grid-column:auto;text-align:right}
 }
 @media (min-width:900px) and (max-width:1099px){
   .wrap{grid-template-columns:minmax(0,1fr) minmax(0,1.2fr)}
@@ -157,8 +169,11 @@ footer{max-width:60ch;margin-top:64px;font-size:16px;line-height:1.6;color:var(-
   .hero img{width:360px}
   .pessoa{grid-template-columns:132px minmax(0,1fr);column-gap:24px}
   .item h2{font-size:32px}
+  .item{padding:24px}
   .pessoa .foto{grid-row:auto}
-  .pessoa .btn{grid-column:1 / -1;justify-self:stretch}
+  .pessoa .btn{grid-column:1 / -1}
+  .livro .txt{grid-template-columns:1fr}
+  .livro .btn{margin-top:16px}
 }
 @media (min-width:1600px){
   .wrap{padding-top:96px}
@@ -184,7 +199,7 @@ footer{max-width:60ch;margin-top:64px;font-size:16px;line-height:1.6;color:var(-
       <a href="https://www.facebook.com/profile.php?id=61596217534517" target="_blank" rel="noopener" aria-label="Facebook">
         <svg viewBox="0 0 24 24" fill="currentColor"><path d="M14 8h3V4h-3c-2.8 0-4 1.8-4 4.3V10H7v4h3v8h4v-8h3l1-4h-4V8.6c0-.4.3-.6.6-.6z"/></svg>
       </a>
-      <a href="#TIKTOK" target="_blank" rel="noopener" aria-label="TikTok">
+      <a href="https://www.tiktok.com/@pediatra.daniel.c" target="_blank" rel="noopener" aria-label="TikTok">
         <svg viewBox="0 0 24 24" fill="currentColor"><path d="M16.5 3c.4 2.2 1.8 3.7 4 4v3.2c-1.5 0-2.9-.4-4-1.2v6.3A6.3 6.3 0 1 1 10.2 9v3.3a3 3 0 1 0 3 3V3h3.3z"/></svg>
       </a>
     </nav>
@@ -194,10 +209,10 @@ footer{max-width:60ch;margin-top:64px;font-size:16px;line-height:1.6;color:var(-
   <section class="caminhos" aria-label="Consultas, vacinação e livro">
 
     <div class="item pessoa consulta">
-      <img class="foto" src="img/dr-daniel-consultorio.webp" alt="Dr. Daniel Caldas no consultório" width="470" height="587" loading="lazy">
+      <img class="foto" src="img/dr-daniel-consultorio.webp" alt="Dr. Daniel Caldas no consultório" width="400" height="500" loading="lazy">
       <div class="txt">
         <h2>Consultas pediátricas</h2>
-        <p>Caldas &amp; Caldas Pediatria e Clínica de Vacinação</p>
+        <p>Caldas &amp; Caldas Pediatria</p>
       </div>
       <a class="btn" href="https://wa.me/5564992954703?text=Ol%C3%A1%2C%20gostaria%20de%20agendar%20uma%20consulta!" target="_blank" rel="noopener">
         <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2c-1.5 0-3-.4-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.4.1-.7.3-.2.3-.9.9-.9 2.2s.9 2.5 1 2.7c.1.2 1.8 2.8 4.4 3.9 1.6.7 2.3.8 3.1.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3z"/></svg>
@@ -206,7 +221,7 @@ footer{max-width:60ch;margin-top:64px;font-size:16px;line-height:1.6;color:var(-
     </div>
 
     <div class="item pessoa vacina">
-      <img class="foto" src="img/dr-daniel-pelucias.webp" alt="Dr. Daniel Caldas no consultório" width="440" height="550" loading="lazy">
+      <img class="foto" src="img/dr-daniel-pelucias.webp" alt="Dr. Daniel Caldas no consultório" width="400" height="500" loading="lazy">
       <div class="txt">
         <h2>Vacinação</h2>
         <p>Informações sobre vacinas com a equipe da Caldas &amp; Caldas.</p>
@@ -222,7 +237,7 @@ footer{max-width:60ch;margin-top:64px;font-size:16px;line-height:1.6;color:var(-
       <div class="capa"><img src="img/og.jpg" alt="Capa do livro Da Introdução Alimentar à Mesa da Família, com Dr. Daniel e Dr. Sebastião Caldas" loading="lazy"></div>
       <div class="txt">
         <h2 class="sr">Da Introdução Alimentar à Mesa da Família</h2>
-        <p>Dos 6 aos 24 meses · com Dr. Sebastião Caldas</p>
+        <p>Escrito com meu pai, Dr. Sebastião Caldas</p>
         <span class="btn btn-2">Conhecer o livro
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
         </span>
@@ -231,7 +246,14 @@ footer{max-width:60ch;margin-top:64px;font-size:16px;line-height:1.6;color:var(-
 
   </section>
 
-  <footer>Caldas &amp; Caldas Pediatria e Clínica de Vacinação<br>Dr. Daniel Caldas · CRM-GO 12.195 · RQE 8.175</footer>
+  <footer class="rodape">
+    <img class="cc" src="img/logo-cc.svg" alt="Caldas &amp; Caldas" width="52" height="44">
+    <div>
+      <p class="clinica">Caldas &amp; Caldas Pediatria e Clínica de Vacinação</p>
+      <p class="medico">Dr.&nbsp;Daniel Caldas · CRM-GO&nbsp;12.195 · RQE&nbsp;8.175</p>
+    </div>
+    <p class="ano">© 2026</p>
+  </footer>
 </main>
 
 </body>
