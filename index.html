@@ -77,6 +77,11 @@ section{padding:88px 0;position:relative}
 .balao li:first-child{border-top:1px solid var(--linha)}
 .perguntas p{color:var(--suave);margin-bottom:14px}
 .perguntas p b{color:var(--tx)}
+.foto-consultorio{margin:40px 9px 0;max-width:440px}
+.foto-consultorio .moldura{aspect-ratio:1/1;background:var(--nv);overflow:hidden;border:1px solid var(--ou2);outline:1px solid #E1D2B0;outline-offset:8px}
+.foto-consultorio img{display:block;width:100%;height:100%;object-fit:cover;object-position:50% 35%}
+.foto-consultorio figcaption{margin-top:20px;font-size:13px;line-height:1.4;color:var(--suave)}
+.foto-consultorio figcaption b{color:var(--nv);font-weight:700}
 
 /* kit */
 .grid-kit{display:flex;flex-wrap:wrap;gap:34px 26px}
@@ -152,6 +157,8 @@ footer p{margin:0;line-height:1.5}
   section{padding:64px 0}
   .hero{padding:52px 0 70px}
   .perguntas .wrap,.sobre .wrap{grid-template-columns:1fr;gap:36px}
+  .foto-consultorio{margin:28px 9px 0;max-width:420px}
+  .foto-consultorio .moldura{aspect-ratio:4/3}
   .grid-kit .item{width:calc(33.33% - 18px)}
   .autores{max-width:440px;width:100%;margin:0 auto}
   .topo .btn-mini{display:none}
@@ -177,6 +184,29 @@ footer p{margin:0;line-height:1.5}
   .medico{padding:5px 5px 12px}
   .medico b{font-size:14.5px}
   .medico small{font-size:11.5px}
+}
+/* kit: carrossel no celular (abaixo de 768px); no desktop/tablet a grade fica igual */
+.kit-nav{display:none}
+@media (max-width:767px){
+  .kit{--gut:20px}
+  .grid-kit{position:relative;flex-wrap:nowrap;gap:16px;overflow-x:auto;overscroll-behavior-x:contain;scroll-snap-type:x mandatory;scroll-padding:0 var(--gut);margin:0 calc(-1 * var(--gut));padding:4px var(--gut) 34px;scrollbar-width:none;-webkit-overflow-scrolling:touch;scroll-behavior:smooth}
+  .grid-kit::-webkit-scrollbar{display:none}
+  .grid-kit:focus-visible{outline:2px solid var(--ou);outline-offset:-2px}
+  .grid-kit .item{flex:0 0 82%;width:auto;max-width:330px;scroll-snap-align:start}
+  .item h3{font-size:18px}
+  .kit-nav:not([hidden]){display:flex;align-items:center;justify-content:center;gap:10px;margin-top:-10px}
+  .kit-dots{display:flex;align-items:center}
+  .kit-dots button{width:22px;height:32px;padding:0;border:0;background:none;cursor:pointer;display:flex;align-items:center;justify-content:center}
+  .kit-dots button:before{content:"";display:block;width:8px;height:8px;border-radius:50%;background:#D5DAE3;transition:background .2s,transform .2s}
+  .kit-dots button[aria-current="true"]:before{background:var(--ou);transform:scale(1.35)}
+  .kit-seta{width:34px;height:34px;border-radius:50%;border:1px solid #E1D2B0;background:#fff;color:var(--nv);font-size:22px;line-height:1;padding:0 0 3px;cursor:pointer;display:flex;align-items:center;justify-content:center}
+  .kit-seta:disabled{opacity:.35;cursor:default}
+  .kit-dots button:focus-visible,.kit-seta:focus-visible{outline:2px solid var(--ou);outline-offset:2px;border-radius:50%}
+}
+@media (max-width:560px){.kit{--gut:16px}}
+@media (prefers-reduced-motion:reduce){
+  .grid-kit{scroll-behavior:auto}
+  .kit-dots button:before{transition:none}
 }
 </style>
 </head>
@@ -400,6 +430,10 @@ c7 -18 21 -72 30 -120 9 -48 29 -126 46 -174 16 -49 39 -139 50 -201 11 -62
     <div>
       <span class="rotulo">No consultório</span>
       <h2>O que os pais mais nos perguntam quando o bebê faz 6 meses</h2>
+      <figure class="foto-consultorio">
+        <div class="moldura"><img src="img/drs-caldas-consultorio.webp" alt="Dr. Sebastião Caldas, à esquerda, e Dr. Daniel Caldas, à direita, pediatras, abraçados e sorrindo no consultório de parede azul da Caldas &amp; Caldas" width="800" height="800" loading="lazy"></div>
+        <figcaption><b>Dr. Sebastião Caldas e Dr. Daniel Caldas</b> · Pediatras</figcaption>
+      </figure>
     </div>
     <div>
       <ul class="balao">
@@ -422,14 +456,19 @@ c7 -18 21 -72 30 -120 9 -48 29 -126 46 -174 16 -49 39 -139 50 -201 11 -62
     <span class="rotulo">Junto com o livro</span>
     <h2>Receitas e guias para o dia a dia</h2>
     <p class="lead">O livro explica o porquê. Estes materiais resolvem o “o que eu faço hoje no almoço”.</p>
-    <div class="grid-kit">
-      <div class="item"><div class="capa"><img src="img/calendario.jpg?v=lx2" alt="Capa: Calendário de Receitas" loading="lazy"></div><h3>Calendário de Receitas</h3><p>O que oferecer em cada semana</p><span class="pg">111 páginas</span></div>
-      <div class="item"><div class="capa"><img src="img/receitas.jpg?v=lx2" alt="Capa: Crescendo Saudável" loading="lazy"></div><h3>Crescendo Saudável</h3><p>204 receitas para bebês de 6 meses a 3 anos</p><span class="pg">137 páginas</span></div>
-      <div class="item"><div class="capa"><img src="img/blw.jpg?v=lx2" alt="Capa: Cortes Seguros no BLW" loading="lazy"></div><h3>Cortes Seguros no BLW</h3><p>Como cortar cada alimento em cada idade</p><span class="pg">Guia</span></div>
-      <div class="item"><div class="capa"><img src="img/congela.jpg?v=lx2" alt="Capa: Congelamento Prático" loading="lazy"></div><h3>Congelamento Prático</h3><p>Prepare a semana e ganhe tempo</p><span class="pg">Guia</span></div>
-      <div class="item"><div class="capa"><img src="img/temperos.jpg?v=lx2" alt="Capa: Temperos Seguros" loading="lazy"></div><h3>Temperos Seguros</h3><p>Sabor de verdade, sem sal antes de 1 ano</p><span class="pg">Guia</span></div>
-      <div class="item"><div class="capa"><img src="img/sorvetes.jpg?v=lx2" alt="Capa: 20 Sorvetes para Bebês" loading="lazy"></div><h3>20 Sorvetes para Bebês</h3><p>Picolés de fruta sem açúcar</p><span class="pg">Receitas</span></div>
-      <div class="item"><div class="capa"><img src="img/bolinhos.jpg?v=lx2" alt="Capa: 20 Bolinhos para Bebês" loading="lazy"></div><h3>20 Bolinhos para Bebês</h3><p>Lanches práticos e saudáveis</p><span class="pg">Receitas</span></div>
+    <div class="grid-kit" id="kit-carrossel" role="region" aria-label="Materiais que acompanham o livro">
+      <div class="item"><div class="capa"><img src="img/calendario.jpg?v=lx3" alt="Capa: Calendário de Receitas" loading="lazy"></div><h3>Calendário de Receitas</h3><p>O que oferecer em cada semana</p><span class="pg">111 páginas</span></div>
+      <div class="item"><div class="capa"><img src="img/receitas.jpg?v=lx3" alt="Capa: Crescendo Saudável" loading="lazy"></div><h3>Crescendo Saudável</h3><p>204 receitas para bebês de 6 meses a 3 anos</p><span class="pg">137 páginas</span></div>
+      <div class="item"><div class="capa"><img src="img/blw.jpg?v=lx3" alt="Capa: Cortes Seguros no BLW" loading="lazy"></div><h3>Cortes Seguros no BLW</h3><p>Como cortar cada alimento em cada idade</p><span class="pg">Guia</span></div>
+      <div class="item"><div class="capa"><img src="img/congela.jpg?v=lx3" alt="Capa: Congelamento Prático" loading="lazy"></div><h3>Congelamento Prático</h3><p>Prepare a semana e ganhe tempo</p><span class="pg">Guia</span></div>
+      <div class="item"><div class="capa"><img src="img/temperos.jpg?v=lx3" alt="Capa: Temperos Seguros" loading="lazy"></div><h3>Temperos Seguros</h3><p>Sabor de verdade, sem sal antes de 1 ano</p><span class="pg">Guia</span></div>
+      <div class="item"><div class="capa"><img src="img/sorvetes.jpg?v=lx3" alt="Capa: 20 Sorvetes para Bebês" loading="lazy"></div><h3>20 Sorvetes para Bebês</h3><p>Picolés de fruta sem açúcar</p><span class="pg">Receitas</span></div>
+      <div class="item"><div class="capa"><img src="img/bolinhos.jpg?v=lx3" alt="Capa: 20 Bolinhos para Bebês" loading="lazy"></div><h3>20 Bolinhos para Bebês</h3><p>Lanches práticos e saudáveis</p><span class="pg">Receitas</span></div>
+    </div>
+    <div class="kit-nav" hidden>
+      <button type="button" class="kit-seta" data-dir="-1" aria-label="Material anterior" aria-controls="kit-carrossel">&#8249;</button>
+      <div class="kit-dots"></div>
+      <button type="button" class="kit-seta" data-dir="1" aria-label="Próximo material" aria-controls="kit-carrossel">&#8250;</button>
     </div>
   </div>
 </section>
@@ -700,6 +739,70 @@ c7 -18 21 -72 30 -120 9 -48 29 -126 46 -174 16 -49 39 -139 50 -201 11 -62
     barra.classList.toggle('oculto',vis.size>0);
   });
   alvos.forEach(function(el){if(el)io.observe(el)});
+})();
+</script>
+
+<script>
+/* carrossel dos materiais: só age abaixo de 768px */
+(function(){
+  var trilho=document.getElementById('kit-carrossel');
+  if(!trilho)return;
+  var nav=trilho.parentNode.querySelector('.kit-nav');
+  var dotsBox=nav.querySelector('.kit-dots');
+  var setas=nav.querySelectorAll('.kit-seta');
+  var itens=[].slice.call(trilho.querySelectorAll('.item'));
+  var mq=window.matchMedia('(max-width:767px)');
+  var rm=window.matchMedia('(prefers-reduced-motion: reduce)');
+  var atual=0, pendente=false, dots=[];
+  itens.forEach(function(it,i){
+    var nome=it.querySelector('h3').textContent;
+    var b=document.createElement('button');
+    b.type='button';
+    b.setAttribute('aria-label','Ir para o material '+(i+1)+' de '+itens.length+': '+nome);
+    b.setAttribute('aria-controls','kit-carrossel');
+    b.addEventListener('click',function(){ir(i)});
+    dotsBox.appendChild(b); dots.push(b);
+  });
+  function ir(i){
+    i=Math.max(0,Math.min(itens.length-1,i));
+    var pad=parseFloat(getComputedStyle(trilho).paddingLeft)||0;
+    trilho.scrollTo({left:itens[i].offsetLeft-pad,behavior:rm.matches?'auto':'smooth'});
+  }
+  function marcar(){
+    pendente=false;
+    var pad=parseFloat(getComputedStyle(trilho).paddingLeft)||0, x=trilho.scrollLeft, melhor=0, dist=Infinity;
+    itens.forEach(function(it,i){var d=Math.abs(it.offsetLeft-pad-x);if(d<dist){dist=d;melhor=i}});
+    if(x+trilho.clientWidth>=trilho.scrollWidth-2)melhor=itens.length-1;
+    atual=melhor;
+    dots.forEach(function(b,i){b.setAttribute('aria-current',i===atual?'true':'false')});
+    setas[0].disabled=atual===0;
+    setas[1].disabled=atual===itens.length-1;
+  }
+  trilho.addEventListener('scroll',function(){if(!pendente){pendente=true;requestAnimationFrame(marcar)}},{passive:true});
+  setas.forEach(function(s){s.addEventListener('click',function(){ir(atual+(+s.getAttribute('data-dir')))})});
+  trilho.addEventListener('keydown',function(e){
+    if(!mq.matches)return;
+    if(e.key==='ArrowRight'){e.preventDefault();ir(atual+1)}
+    else if(e.key==='ArrowLeft'){e.preventDefault();ir(atual-1)}
+    else if(e.key==='Home'){e.preventDefault();ir(0)}
+    else if(e.key==='End'){e.preventDefault();ir(itens.length-1)}
+  });
+  function modo(){
+    var cel=mq.matches;
+    nav.hidden=!cel;
+    if(cel){
+      trilho.setAttribute('tabindex','0');
+      trilho.setAttribute('aria-roledescription','carrossel');
+      itens.forEach(function(it,i){it.setAttribute('role','group');it.setAttribute('aria-roledescription','slide');it.setAttribute('aria-label',(i+1)+' de '+itens.length)});
+      marcar();
+    }else{
+      trilho.removeAttribute('tabindex');
+      trilho.removeAttribute('aria-roledescription');
+      itens.forEach(function(it){it.removeAttribute('role');it.removeAttribute('aria-roledescription');it.removeAttribute('aria-label')});
+    }
+  }
+  if(mq.addEventListener)mq.addEventListener('change',modo);else if(mq.addListener)mq.addListener(modo);
+  modo();
 })();
 </script>
 
