@@ -80,15 +80,6 @@ section{padding:88px 0;position:relative}
 .foto-consultorio figcaption{margin-top:20px;font-size:13px;line-height:1.4;color:var(--suave)}
 .foto-consultorio figcaption b{color:var(--nv);font-weight:700}
 
-/* kit */
-.grid-kit{display:flex;flex-wrap:wrap;gap:34px 26px}
-.grid-kit .item{width:calc(25% - 20px)}
-.item .capa{background:#fff;padding:6px;border:1px solid #E1D2B0;box-shadow:0 10px 24px rgba(14,34,64,.10)}
-.item .capa img{width:100%;aspect-ratio:595/842;object-fit:cover}
-.item h3{font-size:17px;margin:14px 0 2px}
-.item p{font-size:14px;color:var(--suave);line-height:1.45}
-.item .pg{display:block;margin-top:4px;font-size:12px;font-weight:700;color:var(--ou)}
-
 /* autor */
 .sobre .wrap{display:grid;grid-template-columns:.8fr 1.2fr;gap:64px;align-items:center}
 .autores{min-width:0}
@@ -154,7 +145,6 @@ footer p{margin:0;line-height:1.5}
   .perguntas .wrap,.sobre .wrap{grid-template-columns:1fr;gap:36px}
   .foto-consultorio{margin:28px 9px 0;max-width:420px}
   .foto-consultorio .moldura{aspect-ratio:4/3}
-  .grid-kit .item{width:calc(33.33% - 18px)}
   .autores{max-width:440px;width:100%;margin:0 auto}
   .topo .btn-mini{display:none}
   .fixo{display:block;position:fixed;left:12px;right:12px;bottom:12px;z-index:30;transition:opacity .25s,transform .25s}
@@ -166,9 +156,6 @@ footer p{margin:0;line-height:1.5}
 @media (max-width:560px){
   body{font-size:16px}
   .wrap{padding:0 16px}
-  .grid-kit{gap:26px 16px}
-  .grid-kit .item{width:calc(50% - 8px)}
-  .item h3{font-size:16px}
   .caixa{padding:36px 20px}
   .preco .por{font-size:52px}
   .vsl{padding:5px;margin-bottom:30px}
@@ -178,46 +165,6 @@ footer p{margin:0;line-height:1.5}
   .medico{padding:5px 5px 12px}
   .medico b{font-size:14.5px}
   .medico small{font-size:11.5px}
-}
-/* kit: carrossel em todas as larguras (celular: 1 cartao + espiadinha; tablet: ~2; desktop: ~3) */
-.kit-nav{display:none}
-.kit-palco{position:relative}
-.grid-kit{position:relative;flex-wrap:nowrap;gap:26px;overflow-x:auto;overscroll-behavior-x:contain;scroll-snap-type:x mandatory;scrollbar-width:none;-webkit-overflow-scrolling:touch;scroll-behavior:smooth}
-.grid-kit::-webkit-scrollbar{display:none}
-.grid-kit:focus-visible{outline:2px solid var(--ou);outline-offset:-2px}
-.grid-kit .item{scroll-snap-align:start}
-.grid-kit img{-webkit-user-drag:none;user-select:none}
-.kit-nav:not([hidden]){display:flex;align-items:center;justify-content:center;gap:10px;margin-top:-10px}
-.kit-dots{display:flex;align-items:center}
-.kit-dots button{width:22px;height:32px;padding:0;border:0;background:none;cursor:pointer;display:flex;align-items:center;justify-content:center}
-.kit-dots button:before{content:"";display:block;width:8px;height:8px;border-radius:50%;background:#D5DAE3;transition:background .2s,transform .2s}
-.kit-dots button[aria-current="true"]:before{background:var(--ou);transform:scale(1.35)}
-.kit-seta{width:34px;height:34px;border-radius:50%;border:1px solid #E1D2B0;background:#fff;color:var(--nv);font-size:22px;line-height:1;padding:0 0 3px;cursor:pointer;display:flex;align-items:center;justify-content:center}
-.kit-seta:disabled{opacity:.35;cursor:default}
-.kit-dots button:focus-visible,.kit-seta:focus-visible{outline:2px solid var(--ou);outline-offset:2px;border-radius:50%}
-@media (min-width:768px){
-  /* mesmo tamanho de cartao da grade antiga (~240px); a largura do palco define quantos aparecem */
-  .kit-palco{max-width:560px;margin:0 auto}
-  .grid-kit{padding:4px 10px 34px;scroll-padding:0 10px;cursor:grab}
-  .grid-kit.arrastando{cursor:grabbing;scroll-snap-type:none;scroll-behavior:auto}
-  .grid-kit .item{flex:0 0 240px;width:auto}
-  .kit-seta{position:absolute;top:172px;width:46px;height:46px;font-size:28px;background:var(--nv);color:#fff;border-color:var(--nv);box-shadow:0 6px 16px rgba(14,34,64,.22);transform:translateY(-50%);z-index:2}
-  .kit-seta[data-dir="-1"]{left:-62px}
-  .kit-seta[data-dir="1"]{right:-62px}
-  .kit-seta:hover:not(:disabled){background:var(--ou);border-color:var(--ou)}
-  .kit-seta:disabled{opacity:.25}
-}
-@media (min-width:1000px){.kit-palco{max-width:860px}}
-@media (max-width:767px){
-  .kit{--gut:20px}
-  .grid-kit{gap:16px;scroll-padding:0 var(--gut);margin:0 calc(-1 * var(--gut));padding:4px var(--gut) 34px}
-  .grid-kit .item{flex:0 0 82%;width:auto;max-width:330px}
-  .item h3{font-size:18px}
-}
-@media (max-width:560px){.kit{--gut:16px}}
-@media (prefers-reduced-motion:reduce){
-  .grid-kit{scroll-behavior:auto}
-  .kit-dots button:before{transition:none}
 }
 </style>
 </head>
@@ -432,7 +379,7 @@ c7 -18 21 -72 30 -120 9 -48 29 -126 46 -174 16 -49 39 -139 50 -201 11 -62
       <vturb-smartplayer id="vid-6b056c5d3ca0bdfc5c3e26cb" style="display: block; margin: 0 auto; width: 100%; "><div class="vturb-player-placeholder" style="position: relative; width: 100%; padding: 56.25% 0 0; z-index: 0; background-color: black;"></div></vturb-smartplayer>
     </div>
     <a class="btn" id="cta-hero" href="#oferta">Quero o livro</a>
-    <p class="ficha"><b>33 capítulos</b> · 7 módulos · 6 a 24 meses · + 7 materiais de receitas</p>
+    <p class="ficha"><b>33 capítulos</b> · 7 módulos · 6 a 24 meses</p>
   </div>
 </section>
 
@@ -458,30 +405,6 @@ c7 -18 21 -72 30 -120 9 -48 29 -126 46 -174 16 -49 39 -139 50 -201 11 -62
       </ul>
       <p style="margin-top:24px">São dúvidas normais, e quase sempre chegam junto com culpa. Cada uma tem resposta no livro, explicada do jeito que explicamos na consulta, sem termos difíceis.</p>
       <p><b>Não é um método rígido.</b> É orientação para você ter segurança na hora de oferecer e saber quando vale procurar ajuda.</p>
-    </div>
-  </div>
-</section>
-
-<section class="kit">
-  <div class="wrap">
-    <span class="rotulo">Junto com o livro</span>
-    <h2>Receitas e guias para o dia a dia</h2>
-    <p class="lead">O livro explica o porquê. Estes materiais resolvem o “o que eu faço hoje no almoço”.</p>
-    <div class="kit-palco">
-    <div class="grid-kit" id="kit-carrossel" role="region" aria-label="Materiais que acompanham o livro">
-      <div class="item"><div class="capa"><img src="img/calendario.jpg?v=lx3" alt="Capa: Calendário de Receitas" loading="lazy"></div><h3>Calendário de Receitas</h3><p>O que oferecer em cada semana</p><span class="pg">111 páginas</span></div>
-      <div class="item"><div class="capa"><img src="img/receitas.jpg?v=lx3" alt="Capa: Crescendo Saudável" loading="lazy"></div><h3>Crescendo Saudável</h3><p>204 receitas para bebês de 6 meses a 3 anos</p><span class="pg">137 páginas</span></div>
-      <div class="item"><div class="capa"><img src="img/blw.jpg?v=lx3" alt="Capa: Cortes Seguros no BLW" loading="lazy"></div><h3>Cortes Seguros no BLW</h3><p>Como cortar cada alimento em cada idade</p><span class="pg">Guia</span></div>
-      <div class="item"><div class="capa"><img src="img/congela.jpg?v=lx3" alt="Capa: Congelamento Prático" loading="lazy"></div><h3>Congelamento Prático</h3><p>Prepare a semana e ganhe tempo</p><span class="pg">Guia</span></div>
-      <div class="item"><div class="capa"><img src="img/temperos.jpg?v=lx3" alt="Capa: Temperos Seguros" loading="lazy"></div><h3>Temperos Seguros</h3><p>Sabor de verdade, sem sal antes de 1 ano</p><span class="pg">Guia</span></div>
-      <div class="item"><div class="capa"><img src="img/sorvetes.jpg?v=lx3" alt="Capa: 20 Sorvetes para Bebês" loading="lazy"></div><h3>20 Sorvetes para Bebês</h3><p>Picolés de fruta sem açúcar</p><span class="pg">Receitas</span></div>
-      <div class="item"><div class="capa"><img src="img/bolinhos.jpg?v=lx3" alt="Capa: 20 Bolinhos para Bebês" loading="lazy"></div><h3>20 Bolinhos para Bebês</h3><p>Lanches práticos e saudáveis</p><span class="pg">Receitas</span></div>
-    </div>
-    <div class="kit-nav" hidden>
-      <button type="button" class="kit-seta" data-dir="-1" aria-label="Material anterior" aria-controls="kit-carrossel">&#8249;</button>
-      <div class="kit-dots"></div>
-      <button type="button" class="kit-seta" data-dir="1" aria-label="Próximo material" aria-controls="kit-carrossel">&#8250;</button>
-    </div>
     </div>
   </div>
 </section>
@@ -520,13 +443,10 @@ c7 -18 21 -72 30 -120 9 -48 29 -126 46 -174 16 -49 39 -139 50 -201 11 -62
   <div class="wrap">
     <div class="caixa">
       <span class="rotulo">Acesso imediato por e-mail</span>
-      <h2>Livro + materiais de receitas</h2>
+      <h2>Da Introdução Alimentar à Mesa da Família</h2>
       <ul>
-        <li>Livro Da Introdução Alimentar à Mesa da Família</li>
-        <li>Calendário de Receitas, semana a semana</li>
-        <li>Crescendo Saudável, com 204 receitas</li>
-        <li>Guias de Cortes Seguros no BLW, Congelamento e Temperos</li>
-        <li>20 receitas de Sorvetes e 20 de Bolinhos para bebês</li>
+        <li>Livro completo, com 33 capítulos em 7 módulos</li>
+        <li>Para bebês dos 6 aos 24 meses</li>
       </ul>
       <div class="preco">
         <div class="de">de R$ 297,00</div>
@@ -534,7 +454,7 @@ c7 -18 21 -72 30 -120 9 -48 29 -126 46 -174 16 -49 39 -139 50 -201 11 -62
         <div class="parc">ou 12x de R$ 9,74 no cartão</div>
       </div>
       <a class="btn" href="#CHECKOUT">Comprar agora</a>
-      <p class="pagto">Pix, cartão ou boleto. Os arquivos chegam no seu <span class="nw">e-mail</span> em PDF.</p>
+      <p class="pagto">Pix, cartão ou boleto. O livro chega no seu <span class="nw">e-mail</span> em PDF.</p>
     </div>
   </div>
 </section>
@@ -754,77 +674,6 @@ c7 -18 21 -72 30 -120 9 -48 29 -126 46 -174 16 -49 39 -139 50 -201 11 -62
 })();
 </script>
 
-<script>
-/* carrossel dos materiais: em todas as larguras */
-(function(){
-  var trilho=document.getElementById('kit-carrossel');
-  if(!trilho)return;
-  var nav=trilho.parentNode.querySelector('.kit-nav');
-  var dotsBox=nav.querySelector('.kit-dots');
-  var setas=nav.querySelectorAll('.kit-seta');
-  var itens=[].slice.call(trilho.querySelectorAll('.item'));
-  var rm=window.matchMedia('(prefers-reduced-motion: reduce)');
-  var atual=0, pendente=false, dots=[];
-  itens.forEach(function(it,i){
-    var nome=it.querySelector('h3').textContent;
-    var b=document.createElement('button');
-    b.type='button';
-    b.setAttribute('aria-label','Ir para o material '+(i+1)+' de '+itens.length+': '+nome);
-    b.setAttribute('aria-controls','kit-carrossel');
-    b.addEventListener('click',function(){ir(i)});
-    dotsBox.appendChild(b); dots.push(b);
-  });
-  function ir(i){
-    i=Math.max(0,Math.min(itens.length-1,i));
-    var pad=parseFloat(getComputedStyle(trilho).paddingLeft)||0;
-    trilho.scrollTo({left:itens[i].offsetLeft-pad,behavior:rm.matches?'auto':'smooth'});
-  }
-  function marcar(){
-    pendente=false;
-    var pad=parseFloat(getComputedStyle(trilho).paddingLeft)||0, x=trilho.scrollLeft, melhor=0, dist=Infinity;
-    itens.forEach(function(it,i){var d=Math.abs(it.offsetLeft-pad-x);if(d<dist){dist=d;melhor=i}});
-    if(x+trilho.clientWidth>=trilho.scrollWidth-2)melhor=itens.length-1;
-    atual=melhor;
-    dots.forEach(function(b,i){b.setAttribute('aria-current',i===atual?'true':'false')});
-    setas[0].disabled=atual===0;
-    setas[1].disabled=atual===itens.length-1;
-  }
-  trilho.addEventListener('scroll',function(){if(!pendente){pendente=true;requestAnimationFrame(marcar)}},{passive:true});
-  setas.forEach(function(s){s.addEventListener('click',function(){ir(atual+(+s.getAttribute('data-dir')))})});
-  trilho.addEventListener('keydown',function(e){
-    if(e.key==='ArrowRight'){e.preventDefault();ir(atual+1)}
-    else if(e.key==='ArrowLeft'){e.preventDefault();ir(atual-1)}
-    else if(e.key==='Home'){e.preventDefault();ir(0)}
-    else if(e.key==='End'){e.preventDefault();ir(itens.length-1)}
-  });
-  /* arrastar com o mouse (toque e trackpad já rolam sozinhos) */
-  var arr=null;
-  trilho.addEventListener('pointerdown',function(e){
-    if(e.pointerType!=='mouse'||e.button!==0)return;
-    arr={x:e.clientX,l:trilho.scrollLeft,moveu:false};
-  });
-  window.addEventListener('pointermove',function(e){
-    if(!arr)return;
-    var dx=e.clientX-arr.x;
-    if(!arr.moveu&&Math.abs(dx)>4){arr.moveu=true;trilho.classList.add('arrastando')}
-    if(arr.moveu){e.preventDefault();trilho.scrollLeft=arr.l-dx}
-  });
-  function soltar(){
-    if(!arr)return;
-    var moveu=arr.moveu; arr=null;
-    if(moveu){trilho.classList.remove('arrastando');marcar();ir(atual)}
-  }
-  window.addEventListener('pointerup',soltar);
-  window.addEventListener('pointercancel',soltar);
-  trilho.addEventListener('dragstart',function(e){e.preventDefault()});
-  nav.hidden=false;
-  trilho.setAttribute('tabindex','0');
-  trilho.setAttribute('aria-roledescription','carrossel');
-  itens.forEach(function(it,i){it.setAttribute('role','group');it.setAttribute('aria-roledescription','slide');it.setAttribute('aria-label',(i+1)+' de '+itens.length)});
-  marcar();
-  window.addEventListener('resize',function(){if(!pendente){pendente=true;requestAnimationFrame(marcar)}});
-})();
-</script>
 <script type="text/javascript"> var s=document.createElement("script"); s.src="https://scripts.converteai.net/7afd7b44-741b-4e16-ab30-ad47f7f007dc/players/6b056c5d3ca0bdfc5c3e26cb/v4/player.js", s.async=!0,document.head.appendChild(s); </script>
 
 </body>
