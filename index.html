@@ -114,6 +114,8 @@ section{padding:88px 0;position:relative}
 .preco{text-align:center}
 .preco .de{color:var(--suave);text-decoration:line-through;font-size:16px}
 .preco .por{font-family:"Libre Caslon Text",serif;font-weight:700;font-size:64px;color:var(--nv);line-height:1.1}
+.preco .por{white-space:nowrap}
+.preco .por small{font-size:.5em;font-weight:700}
 .preco .parc{font-size:15px;color:var(--suave);margin:4px 0 24px}
 .caixa .btn{width:100%}
 .pagto{font-size:13px;color:var(--suave);margin-top:16px;text-align:center}
@@ -166,6 +168,7 @@ footer p{margin:0;line-height:1.5}
   .medico b{font-size:14.5px}
   .medico small{font-size:11.5px}
 }
+@media (max-width:380px){.preco .por{font-size:42px}}
 </style>
 </head>
 <body>
@@ -450,8 +453,8 @@ c7 -18 21 -72 30 -120 9 -48 29 -126 46 -174 16 -49 39 -139 50 -201 11 -62
       </ul>
       <div class="preco">
         <div class="de">de R$ 297,00</div>
-        <div class="por">R$ 47,00</div>
-        <div class="parc">ou 12x de R$ 4,83 no cartão</div>
+        <div class="por"><small>12x de</small> R$ 4,83</div>
+        <div class="parc">ou R$ 47,00 à vista</div>
       </div>
       <a class="btn" href="#CHECKOUT">Comprar agora</a>
       <p class="pagto">Pix, cartão ou boleto. O livro chega no seu <span class="nw">e-mail</span> em PDF.</p>
@@ -659,7 +662,7 @@ c7 -18 21 -72 30 -120 9 -48 29 -126 46 -174 16 -49 39 -139 50 -201 11 -62
   </div>
 </footer>
 
-<div class="fixo"><a class="btn" href="#oferta">Comprar · R$ 47</a></div>
+<div class="fixo"><a class="btn" href="#oferta">Comprar · 12x de R$ 4,83</a></div>
 <script>
 (function(){
   var barra=document.querySelector('.fixo');
