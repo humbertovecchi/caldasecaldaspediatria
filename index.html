@@ -170,8 +170,24 @@ footer p{margin:0;line-height:1.5}
 }
 @media (max-width:380px){.preco .por{font-size:42px}}
 </style>
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '2359730008210769');
+fbq('track', 'PageView');
+fbq('track', 'ViewContent', {content_name: 'Da Introdução Alimentar à Mesa da Família', value: 47, currency: 'BRL'});
+</script>
+<!-- End Meta Pixel Code -->
 </head>
 <body>
+<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=2359730008210769&ev=PageView&noscript=1" alt=""></noscript>
 
 <header class="topo">
   <div class="wrap">
@@ -369,7 +385,7 @@ c7 -18 21 -72 30 -120 9 -48 29 -126 46 -174 16 -49 39 -139 50 -201 11 -62
 28 184 50 275 21 91 41 190 45 220 10 92 25 161 56 257 15 50 38 145 49 210
 38 216 133 351 175 250z"/>
 </g></svg><div><b>CALDAS &amp; CALDAS</b><span>PEDIATRIA E CLÍNICA DE VACINAÇÃO</span></div></a>
-    <a class="btn btn-mini" href="#oferta">Comprar</a>
+    <a class="btn btn-mini" href="https://payfast.greenn.com.br/207816/offer/Nehofl" data-checkout>Comprar</a>
   </div>
 </header>
 
@@ -381,7 +397,7 @@ c7 -18 21 -72 30 -120 9 -48 29 -126 46 -174 16 -49 39 -139 50 -201 11 -62
     <div class="vsl">
       <vturb-smartplayer id="vid-6b056c5d3ca0bdfc5c3e26cb" style="display: block; margin: 0 auto; width: 100%; "><div class="vturb-player-placeholder" style="position: relative; width: 100%; padding: 56.25% 0 0; z-index: 0; background-color: black;"></div></vturb-smartplayer>
     </div>
-    <a class="btn" id="cta-hero" href="#oferta">Quero o livro</a>
+    <a class="btn" id="cta-hero" href="https://payfast.greenn.com.br/207816/offer/Nehofl" data-checkout>Quero o livro</a>
     <p class="ficha"><b>33 capítulos</b> · 7 módulos · 6 a 24 meses</p>
   </div>
 </section>
@@ -456,7 +472,7 @@ c7 -18 21 -72 30 -120 9 -48 29 -126 46 -174 16 -49 39 -139 50 -201 11 -62
         <div class="por"><small>12x de</small> R$ 4,83</div>
         <div class="parc">ou R$ 47,00 à vista</div>
       </div>
-      <a class="btn" href="#CHECKOUT">Comprar agora</a>
+      <a class="btn" href="https://payfast.greenn.com.br/207816/offer/Nehofl" data-checkout>Comprar agora</a>
       <p class="pagto">Pix, cartão ou boleto. O livro chega no seu <span class="nw">e-mail</span> em PDF.</p>
     </div>
   </div>
@@ -662,7 +678,7 @@ c7 -18 21 -72 30 -120 9 -48 29 -126 46 -174 16 -49 39 -139 50 -201 11 -62
   </div>
 </footer>
 
-<div class="fixo"><a class="btn" href="#oferta">Comprar · 12x de R$ 4,83</a></div>
+<div class="fixo"><a class="btn" href="https://payfast.greenn.com.br/207816/offer/Nehofl" data-checkout>Comprar · 12x de R$ 4,83</a></div>
 <script>
 (function(){
   var barra=document.querySelector('.fixo');
@@ -674,6 +690,21 @@ c7 -18 21 -72 30 -120 9 -48 29 -126 46 -174 16 -49 39 -139 50 -201 11 -62
     barra.classList.toggle('oculto',vis.size>0);
   });
   alvos.forEach(function(el){if(el)io.observe(el)});
+})();
+</script>
+
+<script>
+(function(){
+  var chaves=['utm_source','utm_medium','utm_campaign','utm_content','utm_term','fbclid','src'];
+  var params=new URLSearchParams(window.location.search);
+  var links=document.querySelectorAll('a[data-checkout]');
+  links.forEach(function(a){
+    try{
+      var url=new URL(a.getAttribute('href'));
+      chaves.forEach(function(k){var v=params.get(k);if(v)url.searchParams.set(k,v.slice(0,500));});
+      a.href=url.toString();
+    }catch(e){}
+  });
 })();
 </script>
 
